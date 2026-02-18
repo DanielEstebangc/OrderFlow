@@ -5,6 +5,8 @@ import Producto from "./componentes-seccion-productos/producto"
 import Total_pedido from "./componentes-seccion-productos/Total_pedido"
 import Boton_cancelar from "./components/boton_cancelar"
 import Boton_registrar from  "./components/boton_registrar"
+import { enviarCliente } from "../../../services/cliente_services/clienteService";
+
 export default function Main(){
 
     const [cliente, setCliente] = useState({
@@ -21,8 +23,18 @@ export default function Main(){
     };
 
     const handleMostrarDatos = () => {
-        console.log(cliente);
+    console.log(cliente);
     };
+
+   const handleRegistrar = async () => {
+        try {
+            const respuesta = await enviarCliente(cliente);
+            console.log("Respuesta del backend:", respuesta);
+        } catch (error) {
+            console.error("Error registrando cliente:", error);
+        }
+    };
+
 
     return(
         <main>
@@ -80,7 +92,8 @@ export default function Main(){
 
             <div>
                 <Boton_cancelar></Boton_cancelar>
-                <Boton_registrar onClick={handleMostrarDatos}></Boton_registrar>
+                <Boton_registrar onClick={handleRegistrar}></Boton_registrar>
+                <button onClick={handleMostrarDatos}>MOSTRAR</button>
             </div>
         </main>
     )

@@ -1,19 +1,20 @@
 export const enviarCliente = async (cliente) => {
 
-    try {
-        const response = await fetch("AQUI_VA_TU_URL_DEL_WEBAPP", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(cliente)
-        });
+    console.log("Enviando:", cliente);
 
-        const data = await response.json();
+    const response = await fetch("https://script.google.com/macros/s/AKfycbzEWxM-Cyo24m-hJvXqWGKE98beDjG0LQXLZU0r5jzZjmvgZX99o7c_i7kH1tKmtOrn/exec", {
+        method: "POST",
+        body: JSON.stringify(cliente)
+    });
 
-        console.log("Servidor respondió:", data);
+    console.log("Status:", response.status);
 
-    } catch (error) {
-        console.error("Error enviando cliente:", error);
+    if (!response.ok) {
+        throw new Error("Error en la respuesta del servidor");
     }
+
+    const data = await response.json();
+    console.log("Respuesta JSON:", data);
+
+    return data;
 };
