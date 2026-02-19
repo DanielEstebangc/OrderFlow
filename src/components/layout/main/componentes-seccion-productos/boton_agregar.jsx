@@ -1,5 +1,7 @@
-export default function Boton_Agregar(){
-return(
-    <button>+ Agregar</button>
-)
+export default function Boton_Agregar({ onClick }) {
+  return (
+    <button onClick={onClick}>
+      + Agregar
+    </button>
+  );
 }

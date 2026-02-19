@@ -6,6 +6,7 @@ import Total_pedido from "./componentes-seccion-productos/Total_pedido"
 import Boton_cancelar from "./components/boton_cancelar"
 import Boton_registrar from  "./components/boton_registrar"
 import { enviarCliente } from "../../../services/cliente_services/clienteService";
+import ProductoItem from "./componentes-seccion-productos/ProductoItem";
 
 export default function Main(){
 
@@ -24,6 +25,31 @@ export default function Main(){
 
     const handleMostrarDatos = () => {
     console.log(cliente);
+    };
+
+    const [productoActual, setProductoActual] = useState({
+        nombre: "",
+        cantidad: "",
+        precio: ""
+    });
+
+    const [productos, setProductos] = useState([]);
+
+    const handleAgregarProducto = () => {
+        console.log("Producto actual:", productoActual);
+        if (!productoActual.nombre || !productoActual.cantidad) return;
+
+        setProductos(prev => [
+            ...prev,
+            { id: Date.now(), ...productoActual }
+        ]);
+
+        // limpiar producto actual
+        setProductoActual({
+            nombre: "",
+            cantidad: "",
+            precio: ""
+        });
     };
 
    const handleRegistrar = async () => {
@@ -74,16 +100,29 @@ export default function Main(){
                 />
                 </div>
             </section>
+
             <section>
 
                 <div>
                     <span>icono</span>
                     <h2>Productos</h2> 
-                    <Boton_Agregar></Boton_Agregar>
+                    <Boton_Agregar onClick={handleAgregarProducto}></Boton_Agregar>
                 </div>
 
-                <div>                    
-                    <Producto></Producto>
+                <div>
+                    {/* FORMULARIO */}
+                    <Producto
+                        producto={productoActual}
+                        setProducto={setProductoActual}
+                    />
+
+                    {/* PRODUCTOS AGREGADOS */}
+                    {productos.map((p) => (
+                        <ProductoItem
+                            key={p.id}
+                            producto={p}
+                        />
+                    ))}
                 </div>
 
                <Total_pedido></Total_pedido>
@@ -92,7 +131,7 @@ export default function Main(){
 
             <div>
                 <Boton_cancelar></Boton_cancelar>
-                <Boton_registrar onClick={handleRegistrar}></Boton_registrar>
+                <Boton_registrar onClick={() => {handleRegistrar();handleMostrarDatos();}} ></Boton_registrar>
                 <button onClick={handleMostrarDatos}>MOSTRAR</button>
             </div>
         </main>
