@@ -91,12 +91,13 @@ export default function Main(){
                 />
 
                 <Inputs
-                    name="correo"
-                    label="Correo electrónico"
-                    placeholder="daniel@email.com"
-                    icon="mail"
-                    value={cliente.correo}
+                    name="email"
+                    label="Correo"
+                    placeholder="Ingresa tu correo"
+                    value={cliente.email}
                     onChange={handleChange}
+                    type="email"
+                    required
                 />
                 </div>
             </section>
