@@ -27,39 +27,40 @@ export default function Main(){
     console.log(cliente);
     };
 
-    const [productoActual, setProductoActual] = useState({
-        nombre: "",
-        cantidad: "",
-        precio: ""
-    });
-
     const [productos, setProductos] = useState([]);
 
     const handleAgregarProducto = () => {
-        console.log("Producto actual:", productoActual);
-        if (!productoActual.nombre || !productoActual.cantidad) return;
-
         setProductos(prev => [
             ...prev,
-            { id: Date.now(), ...productoActual }
-        ]);
-
-        // limpiar producto actual
-        setProductoActual({
+            {
+            id: Date.now(),
             nombre: "",
             cantidad: "",
             precio: ""
-        });
-    };
+            }
+        ]);
+        };
 
    const handleRegistrar = async () => {
-        try {
-            const respuesta = await enviarCliente(cliente);
-            console.log("Respuesta del backend:", respuesta);
-        } catch (error) {
-            console.error("Error registrando cliente:", error);
-        }
-    };
+    try {
+
+        const pedidoCompleto = {
+            cliente,
+            productos
+        };
+
+        console.log("Enviando al backend:", pedidoCompleto);
+
+        const respuesta = await enviarCliente(pedidoCompleto);
+
+        console.log("Respuesta del backend:", respuesta);
+
+    } catch (error) {
+        console.error("Error registrando pedido:", error);
+    }
+};
+    
+
 
 
     return(
@@ -91,7 +92,7 @@ export default function Main(){
                 />
 
                 <Inputs
-                    name="email"
+                    name="correo"
                     label="Correo"
                     placeholder="Ingresa tu correo"
                     value={cliente.email}
@@ -111,17 +112,15 @@ export default function Main(){
                 </div>
 
                 <div>
-                    {/* FORMULARIO */}
-                    <Producto
-                        producto={productoActual}
-                        setProducto={setProductoActual}
-                    />
-
-                    {/* PRODUCTOS AGREGADOS */}
-                    {productos.map((p) => (
-                        <ProductoItem
-                            key={p.id}
-                            producto={p}
+                    {productos.map((p, index) => (
+                        <Producto
+                        key={p.id}
+                        producto={p}
+                        setProducto={(nuevoProducto) => {
+                            const copia = [...productos];
+                            copia[index] = nuevoProducto;
+                            setProductos(copia);
+                        }}
                         />
                     ))}
                 </div>

@@ -6,22 +6,21 @@ import SelectProductos from "./select_productos"
 export default function Producto({ producto, setProducto }) {
 
   const handleSelectProducto = (productoSeleccionado) => {
-    setProducto((prev) => ({
-      ...prev,
+    setProducto({
+      ...producto,
       nombre: productoSeleccionado.nombre,
       precio: productoSeleccionado.precio
-    }));
+    });
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setProducto((prev) => ({
-      ...prev,
+    setProducto({
+      ...producto,
       [name]: value
-    }));
+    });
   };
-
 
     
     return(
