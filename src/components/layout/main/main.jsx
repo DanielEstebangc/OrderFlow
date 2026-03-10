@@ -2,11 +2,10 @@ import { useState } from "react";
 import Inputs from "./componentes-seccion cliente/input_info_cliente"
 import Boton_Agregar from "./componentes-seccion-productos/boton_agregar"
 import Producto from "./componentes-seccion-productos/producto"
-import Total_pedido from "./componentes-seccion-productos/Total_pedido"
+import Total_pedido from "./componentes-seccion-productos/Total_pedido";
 import Boton_cancelar from "./components/boton_cancelar"
 import Boton_registrar from  "./components/boton_registrar"
 import { enviarCliente } from "../../../services/cliente_services/clienteService";
-import ProductoItem from "./componentes-seccion-productos/ProductoItem";
 
 export default function Main(){
 
@@ -33,10 +32,10 @@ export default function Main(){
         setProductos(prev => [
             ...prev,
             {
-            id: Date.now(),
+            id: crypto.randomUUID(),
             nombre: "",
-            cantidad: "",
-            precio: ""
+            cantidad: 0,
+            precio: 0
             }
         ]);
         };
@@ -59,10 +58,43 @@ export default function Main(){
         console.error("Error registrando pedido:", error);
     }
 };
+
+    const handleCancelar = () => {
+        setCliente({
+            nombre: "",
+            telefono: "",
+            correo: ""
+        });
+
+        setProductos([]);
+    };
+
+    const handleEliminarProducto = (id) => {
+    setProductos(prev => prev.filter(p => p.id !== id));
+    };
+
+
+    const handleActualizarProducto = (id, cambios) => {
+    setProductos(prev =>
+        prev.map(p =>
+        p.id === id ? { ...p, ...cambios } : p
+        )
+    );
+    };
+
+   const total = productos.reduce((acc, producto) => {
+        const cantidad = Number(producto.cantidad) || 0;
+        const precio = Number(producto.precio) || 0;
+
+        return acc + (cantidad * precio);
+    }, 0);
+
+    console.log("Productos:", productos);
+    console.log("Total calculado:", total);
     
 
 
-
+    console.log("RENDER MAIN", productos);
     return(
         <main>
             <section>
@@ -95,7 +127,7 @@ export default function Main(){
                     name="correo"
                     label="Correo"
                     placeholder="Ingresa tu correo"
-                    value={cliente.email}
+                    value={cliente.correo}
                     onChange={handleChange}
                     type="email"
                     required
@@ -103,8 +135,7 @@ export default function Main(){
                 </div>
             </section>
 
-            <section>
-
+            <section style={{ border: "3px solid green", padding: "20px" }}>
                 <div>
                     <span>icono</span>
                     <h2>Productos</h2> 
@@ -112,25 +143,21 @@ export default function Main(){
                 </div>
 
                 <div>
-                    {productos.map((p, index) => (
-                        <Producto
+                   {productos.map((p) => (
+                    <Producto
                         key={p.id}
                         producto={p}
-                        setProducto={(nuevoProducto) => {
-                            const copia = [...productos];
-                            copia[index] = nuevoProducto;
-                            setProductos(copia);
-                        }}
-                        />
-                    ))}
+                        onChange={(cambios) => handleActualizarProducto(p.id, cambios)}
+                        onEliminar={() => handleEliminarProducto(p.id)}
+                    />
+                ))}
                 </div>
 
-               <Total_pedido></Total_pedido>
-
+                <Total_pedido total={total} />
             </section>
 
             <div>
-                <Boton_cancelar></Boton_cancelar>
+                <Boton_cancelar onClick={handleCancelar}/>
                 <Boton_registrar onClick={() => {handleRegistrar();handleMostrarDatos();}} ></Boton_registrar>
                 <button onClick={handleMostrarDatos}>MOSTRAR</button>
             </div>

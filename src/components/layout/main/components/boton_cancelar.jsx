@@ -1,7 +1,7 @@
-export default function cancelar(){
-    return(
-        <button>
-            Cancelar
-        </button>
-    )
+export default function Boton_cancelar({ onClick }) {
+  return (
+    <button onClick={onClick}>
+      Cancelar
+    </button>
+  );
 }

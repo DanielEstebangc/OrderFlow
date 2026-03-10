@@ -1,5 +1,5 @@
-export default function boton_eliminar({icono}){
+export default function boton_eliminar({icono, onClick }){
     return(
-        <button>{icono}</button>
+        <button onClick={onClick} >{icono}</button>
     )
 }

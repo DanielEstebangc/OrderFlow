@@ -1,43 +1,55 @@
-import Boton_eliminar from "./boton_eliminar"
-import SelectProductos from "./select_productos"
+import Boton_eliminar from "./boton_eliminar";
+import SelectProductos from "./select_productos";
 
-
-
-export default function Producto({ producto, setProducto }) {
+export default function Producto({ producto, onEliminar, onChange }) {
 
   const handleSelectProducto = (productoSeleccionado) => {
-    setProducto({
+    onChange({
       ...producto,
       nombre: productoSeleccionado.nombre,
-      precio: productoSeleccionado.precio
+      precio: Number(productoSeleccionado.precio)
     });
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setProducto({
+    onChange({
       ...producto,
-      [name]: value
+      [name]: Number(value)
     });
   };
 
-    
-    return(
-        <div>
-            <div>
-            <SelectProductos onSelect={handleSelectProducto}></SelectProductos>
-            <div>
-                <label htmlFor="cantidad"></label>        
-                <input name="cantidad" type="number" placeholder="0" value={producto.cantidad} onChange={handleChange}></input>
-            </div>
+  return(
+    <div>
+      <div>
 
-            <div> 
-                <p>precio</p>
-                <span>{producto.precio}</span>
-            </div>
-            </div>
-            <Boton_eliminar icono={"eliminar"}></Boton_eliminar>
+        <SelectProductos 
+          onSelect={handleSelectProducto}
+          value={producto.nombre}
+        />
+
+        <div>
+          <label htmlFor="cantidad">Cantidad</label>        
+          <input
+            name="cantidad"
+            type="number"
+            placeholder="0"
+            value={producto.cantidad || 0}
+            onChange={handleChange}
+            min="0"
+          />
         </div>
-    )
+
+        <div> 
+          <p>Precio</p>
+          <span>{producto.precio || 0}</span>
+        </div>
+
+      </div>
+
+      <Boton_eliminar icono={"eliminar"} onClick={onEliminar} />
+
+    </div>
+  );
 }

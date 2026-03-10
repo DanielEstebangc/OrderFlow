@@ -16,14 +16,17 @@ export default function SelectComidas({ onSelect }) {
     );
 
     if (productoSeleccionado) {
-      onSelect(productoSeleccionado);
-    }
+      onSelect({
+        ...productoSeleccionado,
+        precio: Number(productoSeleccionado.precio)
+      });
+    } 
   };
 
    return (
     <div>
       <label>Comida</label>
-      <select onChange={handleChange}>
+      <select  defaultValue="" onChange={handleChange}>
         <option value="">Selecciona una comida</option>
 
         {comidas.map((comida) => (
