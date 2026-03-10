@@ -89,8 +89,8 @@ export default function Main(){
         return acc + (cantidad * precio);
     }, 0);
 
-    console.log("Productos:", productos);
-    console.log("Total calculado:", total);
+    console.log("ESTADO PRODUCTOS:", JSON.stringify(productos, null, 2));
+
     
 
 
@@ -153,7 +153,7 @@ export default function Main(){
                 ))}
                 </div>
 
-                <Total_pedido total={total} />
+                <Total_pedido total={total} key={total} />            
             </section>
 
             <div>
