@@ -6,6 +6,7 @@ import Total_pedido from "./componentes-seccion-productos/Total_pedido";
 import Boton_cancelar from "./components/boton_cancelar"
 import Boton_registrar from  "./components/boton_registrar"
 import { enviarCliente } from "../../../services/cliente_services/clienteService";
+import "./main.css";
 
 export default function Main(){
 
@@ -96,7 +97,7 @@ export default function Main(){
 
     console.log("RENDER MAIN", productos);
     return(
-        <main>
+        <main className="main">
             <section>
 
                 <div>

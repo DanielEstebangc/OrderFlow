@@ -1,13 +1,14 @@
-import Header from "./Header/header";
-import Main from "./main/main";
+import Header from "./Header/Header";
+import Main from "./Main/Main";
+import "./Layout.css";
 
-export default function layout(){
-    return(   
-    <>
-        <Header></Header>
-        <Main></Main>
-    </>     
-  
-
-    )
+export default function Layout() {
+    return (
+        <div className="layout">
+            <div className="inner-container">
+                <Header />
+                <Main />
+            </div>
+        </div>
+    );
 }

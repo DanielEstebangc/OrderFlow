@@ -1,0 +1,16 @@
+.layout {
+    width: 100%;
+    padding: 32px 0; /* solo arriba/abajo */
+    display: flex;
+    justify-content: center; /* centra horizontalmente el main */
+    background-color: #e0e7ff; /* indigo-100 */
+
+}
+
+.inner-container {
+    max-width: calc(100% - 168.333px*2); /* ancho máximo sin salirse del layout */
+    margin: 0 auto;                       /* centrado */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}

@@ -1,0 +1,11 @@
+.main {
+    width: 832px;
+    min-height: 575px;
+    padding: 24px 32px; /* padding interno solo para contenido */
+    margin: 0;           /* sin margen externo */
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 10px;
+}

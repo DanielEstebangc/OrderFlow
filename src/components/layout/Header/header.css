@@ -1,0 +1,33 @@
+.header{
+    background: #2563eb;
+    color: white;
+    border-radius: 10px;
+    padding: 24px 32px;
+    width: 832px;          /* ancho fijo */
+    height: 60px;          /* alto fijo */
+}
+
+.header-container{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+}
+
+/* .header-icon{
+
+} */
+
+.header-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.header-title{
+    margin: 0;
+
+}
+
+.header-subtitle{
+    margin: 0;
+}
