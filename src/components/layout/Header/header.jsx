@@ -1,5 +1,5 @@
 import "./header.css";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 export default function Header() {
   return (

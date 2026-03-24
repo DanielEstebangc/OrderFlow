@@ -1,5 +1,10 @@
 import Boton_eliminar from "./boton_eliminar";
 import SelectProductos from "./select_productos";
+import DeleteIcon from '@mui/icons-material/Delete';
+
+
+
+
 
 export default function Producto({ producto, onEliminar, onChange }) {
 
@@ -48,7 +53,7 @@ export default function Producto({ producto, onEliminar, onChange }) {
 
       </div>
 
-      <Boton_eliminar icono={"eliminar"} onClick={onEliminar} />
+      <Boton_eliminar icono= {<DeleteIcon sx={{ fontSize: 50, color: '#ff2222' }}/>} onClick={onEliminar} />
 
     </div>
   );

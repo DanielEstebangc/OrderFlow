@@ -7,7 +7,7 @@ export default function Total_pedido({ total }) {
       fontSize: "30px",
       color: "black"
     }}>
-      🔥 TOTAL REAL: {total}
+      $ {total}
     </div>
   );
 }

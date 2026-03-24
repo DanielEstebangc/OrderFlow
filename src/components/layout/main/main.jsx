@@ -7,6 +7,14 @@ import Boton_cancelar from "./components/boton_cancelar"
 import Boton_registrar from  "./components/boton_registrar"
 import { enviarCliente } from "../../../services/cliente_services/clienteService";
 import "./main.css";
+import PersonIcon from '@mui/icons-material/PersonOutlined';
+import MailIcon from '@mui/icons-material/MailOutlined';
+import CallIcon from '@mui/icons-material/CallOutlined';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCartOutlined';
+
+
+
+
 
 export default function Main(){
 
@@ -101,7 +109,7 @@ export default function Main(){
             <section>
 
                 <div>
-                    <span>icono</span>
+                    <span><PersonIcon sx={{ fontSize: 50, color: '#2563eb' }}/></span>
                     <h2>Información del Cliente</h2> 
                 </div>
                 
@@ -110,7 +118,6 @@ export default function Main(){
                     name="nombre"
                     label="Nombre completo"
                     placeholder="EJ. Daniel Galvis"
-                    icon="user"
                     value={cliente.nombre}
                     onChange={handleChange}
                 />
@@ -119,7 +126,7 @@ export default function Main(){
                     name="telefono"
                     label="Teléfono"
                     placeholder="+57 300 123 4567"
-                    icon="phone"
+                    icon={<CallIcon sx={{ fontSize: 20, color: '#000000' }} />}
                     value={cliente.telefono}
                     onChange={handleChange}
                 />
@@ -128,6 +135,7 @@ export default function Main(){
                     name="correo"
                     label="Correo"
                     placeholder="Ingresa tu correo"
+                    icon={<MailIcon sx={{ fontSize: 20, color: '#000000' }} />}
                     value={cliente.correo}
                     onChange={handleChange}
                     type="email"
@@ -138,7 +146,7 @@ export default function Main(){
 
             <section style={{ border: "3px solid green", padding: "20px" }}>
                 <div>
-                    <span>icono</span>
+                    <span><ShoppingCartIcon sx={{ fontSize: 50, color: '#2563eb' }} /></span>
                     <h2>Productos</h2> 
                     <Boton_Agregar onClick={handleAgregarProducto}></Boton_Agregar>
                 </div>
