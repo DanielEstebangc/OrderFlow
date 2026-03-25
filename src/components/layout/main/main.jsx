@@ -108,12 +108,12 @@ export default function Main(){
         <main className="main">
             <section>
 
-                <div>
+                <div className="Contenedor_titulo">
                     <span><PersonIcon sx={{ fontSize: 50, color: '#2563eb' }}/></span>
                     <h2>Información del Cliente</h2> 
                 </div>
                 
-                <div>
+                <div className="Contenedor_inputs">
                  <Inputs
                     name="nombre"
                     label="Nombre completo"
@@ -144,10 +144,14 @@ export default function Main(){
                 </div>
             </section>
 
-            <section style={{ border: "3px solid green", padding: "20px" }}>
-                <div>
-                    <span><ShoppingCartIcon sx={{ fontSize: 50, color: '#2563eb' }} /></span>
-                    <h2>Productos</h2> 
+            <section>
+                <div className="Contenedor_titulo_producto">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                        <span>
+                            <ShoppingCartIcon sx={{ fontSize: 50, color: '#2563eb' }} />
+                        </span>
+                        <h2>Productos</h2> 
+                    </div>
                     <Boton_Agregar onClick={handleAgregarProducto}></Boton_Agregar>
                 </div>
 
