@@ -1,0 +1,31 @@
+/* Boton_eliminar.css */
+.btn-eliminar-container {
+  /* 1. Resetear el botón */
+  background: transparent;
+  border: 1px solid #eee; /* Borde sutil para que parezca tarjeta */
+  padding: 8px;           /* Espacio interno para que no esté pegado al icono */
+  
+  /* 2. Forma de tarjeta pequeña */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;     /* Esquinas redondeadas */
+  cursor: pointer;
+  transition: all 0.2s ease; /* Para que el cambio de color sea suave */
+  
+  /* 3. Sombra muy ligera para efecto de tarjeta */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* 4. Efecto Hover (Rojo claro al pasar el mouse) */
+.btn-eliminar-container:hover {
+  background-color: #fee2e2; /* Un rojo muy claro (estilo Tailwind red-100) */
+  border-color: #fca5a5;     /* Borde un poco más oscuro que el fondo */
+  transform: translateY(-1px); /* Pequeño salto hacia arriba */
+}
+
+/* 5. Efecto al hacer clic (Active) */
+.btn-eliminar-container:active {
+  transform: scale(0.95);    /* Se encoge un poquito al presionarlo */
+  background-color: #fecaca;
+}

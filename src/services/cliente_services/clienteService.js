@@ -1,19 +1,17 @@
-export const enviarCliente = async (cliente) => {
+export const enviarCliente = async (data) => {
 
-    try {
-        const response = await fetch("AQUI_VA_TU_URL_DEL_WEBAPP", {
+    console.log("📤 Datos enviados al backend:", JSON.stringify(data, null, 2));
+
+    await fetch(
+        "https://script.google.com/macros/s/AKfycbzEWxM-Cyo24m-hJvXqWGKE98beDjG0LQXLZU0r5jzZjmvgZX99o7c_i7kH1tKmtOrn/exec",
+        {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(cliente)
-        });
+            mode: "no-cors",
+            body: JSON.stringify(data)
+        }
+    );
 
-        const data = await response.json();
+    console.log("✅ Petición enviada (no-cors, sin respuesta legible)");
 
-        console.log("Servidor respondió:", data);
-
-    } catch (error) {
-        console.error("Error enviando cliente:", error);
-    }
+    return { success: true };
 };

@@ -1,5 +1,9 @@
-export default function boton_eliminar({icono}){
+import "./Boton_eliminar.css";
+
+export default function boton_eliminar({icono, onClick }){
     return(
-        <button>{icono}</button>
+        <button className="btn-eliminar-container" onClick={onClick} >
+            {icono}
+        </button>
     )
 }

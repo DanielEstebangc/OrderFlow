@@ -1,0 +1,110 @@
+.producto_fila {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    /* Tamaños exactos solicitados */
+    width: 800px;
+    height: 65.6px; 
+
+    /* El nuevo fondo gris claro */
+    background-color: #f3f4f6; /* Gris claro sutil (estilo Tailwind gray-100) */  
+
+    /* Estética de tarjeta */
+    padding: 0 20px; /* Padding lateral para que el contenido no toque los bordes */
+    margin: 10px auto; /* Centra la fila si el padre es más ancho */
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-sizing: border-box; /* Vital para que el padding no sume al tamaño total */
+}
+
+/* Ajuste para que los controles internos no se amontonen */
+.producto_controles {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    flex-grow: 1;
+}
+
+
+/* Contenedor que agrupa label e input */
+.producto_item_cantidad {
+    display: flex;
+    flex-direction: column; /* Apila el label sobre el input */
+    align-items: flex-start; /* Alinea todo a la izquierda */
+    gap: 4px; /* Espacio pequeño entre el texto y el cuadro */
+}
+
+/* Estilo para la palabra "Cantidad" */
+.producto_item_cantidad label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase; /* Opcional: le da un toque moderno */
+}
+
+/* El input redondeado */
+.input_cantidad {
+    width: 100%; /* Tamaño ideal para números cortos */
+    height: 32px;
+    padding: 0 8px;
+    border-radius: 8px; /* Bordes redondeados */
+    border: 1px solid #d1d5db;
+    background-color: white; /* Resalta sobre el fondo gris de la fila */
+    outline: none;
+    transition: border-color 0.2s;
+    text-align: center; /* Centra el número para que se vea mejor */
+}
+
+/* Efecto al hacer clic */
+.input_cantidad:focus {
+    border-color: #2563eb; /* Azul cuando estás escribiendo */
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+/* producto.css */
+.producto_item_select {
+    display: flex;
+    flex-direction: column; /* Lo pone en vertical */
+    align-items: flex-start; /* Alinea a la izquierda */
+    gap: 4px;
+    width: 320px; /* Ancho fijo para que no baile */
+}
+
+
+/* Contenedor del Precio (Igual que los anteriores) */
+.producto_item_precio {
+    display: flex;
+    flex-direction: column; /* Label arriba, precio abajo */
+    align-items: flex-start; /* Alineado a la izquierda */
+    gap: 4px;
+    width: 100px; /* Ancho suficiente para el monto */
+}
+
+/* Estilo para la palabra "Precio" */
+.producto_item_precio p {
+    margin: 0; /* Quita márgenes por defecto del <p> */
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* El valor numérico del precio */
+.precio_texto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 100%;
+    height: 32px; /* Misma altura que el input y el select */
+    
+    background-color: #f9fafb; /* Un gris muy sutil para diferenciarlo de los inputs */
+    border-radius: 8px; /* Redondeado igual a los anteriores */
+    border: 1px solid #d1d5db;
+    
+    font-size: 14px;
+    font-weight: 700;
+    color: #059669; /* Un verde esmeralda para que resalte como valor monetario */
+}
+
