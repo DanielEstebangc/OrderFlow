@@ -1,0 +1,32 @@
+.btn_registrar {
+    /* El degradado que querías copiar */
+    background: linear-gradient(to right, #2563eb, #4744f4);
+    
+    padding: 10px 25px;
+    min-width: 160px;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+/* Efectos de Hover y Click */
+.btn_registrar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+    filter: brightness(1.1);
+}
+
+.btn_registrar:active {
+    transform: translateY(0);
+    transform: scale(0.96);
+    filter: brightness(0.9);
+}

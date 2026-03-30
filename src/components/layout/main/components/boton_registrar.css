@@ -1,0 +1,37 @@
+.btn_registrar {
+    /* El degradado que pediste */
+    background: linear-gradient(to right, #2563eb, #4744f4);
+    
+    /* Dimensiones y Forma */
+    padding: 10px 25px;
+    min-width: 160px;
+    height: 42px; /* Ligeramente más alto que el de cancelar para jerarquía */
+    border: none;
+    border-radius: 10px;
+    
+    /* Texto */
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    
+    /* Interacción y Sombra */
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+/* Efecto al pasar el mouse (Brillo y elevación) */
+.btn_registrar:hover {
+    transform: translateY(-2px); /* Se eleva un poquito */
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+    filter: brightness(1.1); /* Lo aclara sutilmente */
+}
+
+/* Efecto al hacer clic (Pulsación) */
+.btn_registrar:active {
+    transform: translateY(0);
+    transform: scale(0.96);
+    filter: brightness(0.9);
+}

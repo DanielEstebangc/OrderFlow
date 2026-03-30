@@ -1,0 +1,29 @@
+/* CSS propio de SelectProductos */
+.select-productos-input { /* Asegúrate de que tu <select> tenga esta clase */
+    width: 100%;
+    height: 32px;
+    padding: 0 10px;
+    border-radius: 8px; /* Redondeado igual que el de cantidad */
+    border: 1px solid #d1d5db;
+    background-color: white;
+    font-size: 14px;
+    color: #374151;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.select-productos-input:focus {
+    border-color: #2563eb; /* Azul cuando estás escribiendo */
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.select-productos-input:hover {
+    border-color: #9ca3af;
+}
+
+.producto_item_select label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase; /* Opcional: le da un toque moderno */
+}

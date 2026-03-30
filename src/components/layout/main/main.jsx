@@ -169,10 +169,10 @@ export default function Main(){
                 <Total_pedido total={total} key={total} />            
             </section>
 
-            <div>
+            <div className="contenedor_acciones_pedido">                
                 <Boton_cancelar onClick={handleCancelar}/>
                 <Boton_registrar onClick={() => {handleRegistrar();handleMostrarDatos();}} ></Boton_registrar>
-                <button onClick={handleMostrarDatos}>MOSTRAR</button>
+                {/* <button onClick={handleMostrarDatos}>MOSTRAR</button> */}
             </div>
         </main>
     )

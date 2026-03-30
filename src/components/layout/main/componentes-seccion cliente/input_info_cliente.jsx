@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./input_info_cliente.css";
 
 export default function Inputs({placeholder, 
   label, 
@@ -49,10 +50,13 @@ export default function Inputs({placeholder,
 
 
     return (
-    <div style={{ marginBottom: "15px" }}>
-      <span>{icon}</span>
-      <label htmlFor={name}>{label}</label>
+    <div className="input_contenedor_principal" style={{ marginBottom: "15px" }}>
+      <div className="input_header">
+        <span className="input_icon">{icon}</span>
+        <label className="input_label" htmlFor={name}>{label}</label>
+      </div>
       <input
+        className={`input_field ${error ? "input_error" : ""}`}
         type={type}
         name={name}
         placeholder={placeholder}
@@ -66,7 +70,7 @@ export default function Inputs({placeholder,
         }}
       />
       {error && (
-        <small style={{ color: "red" }}>
+        <small className="error_text" style={{ color: "red" }}>
           {error}
         </small>
       )}

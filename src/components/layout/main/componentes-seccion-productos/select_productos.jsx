@@ -1,3 +1,6 @@
+import "./Select_productos.css";
+
+
 export default function SelectComidas({ onSelect }) {
   const comidas = [
     { id: 1, nombre: "Hamburguesa", precio: 10 },
@@ -24,18 +27,20 @@ export default function SelectComidas({ onSelect }) {
   };
 
    return (
-    <div>
-      <label>Comida</label>
-      <select  defaultValue="" onChange={handleChange}>
-        <option value="">Selecciona una comida</option>
-
-        {comidas.map((comida) => (
-          <option key={comida.id} value={comida.id}>
-            {comida.nombre}
-          </option>
-        ))}
-
-      </select>
-    </div>
-  );
+  <div className="producto_item_select"> {/* Clase para el contenedor en columna */}
+    <label>Comida</label>
+    <select 
+      className="select-productos-input" // <--- Clase para el diseño redondeado
+      defaultValue="" 
+      onChange={handleChange}
+    >
+      <option value="" disabled>Selecciona una comida</option>
+      {comidas.map((comida) => (
+        <option key={comida.id} value={comida.id}>
+          {comida.nombre}
+        </option>
+      ))}
+    </select>
+  </div>
+);
 }

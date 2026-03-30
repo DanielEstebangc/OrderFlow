@@ -25,6 +25,34 @@
     justify-content: space-between;
 }
 
+
+.main {
+    width: 832px;
+    min-height: 575px;
+    padding: 24px 32px; /* padding interno solo para contenido */
+    margin: 0;           /* sin margen externo */
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 10px;
+}
+
+.Contenedor_titulo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.Contenedor_titulo_producto {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+}
+
 .Contenedor_inputs {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -37,10 +65,75 @@
     
     /* O puedes usar el atajo 'gap' que aplica a ambos: */
     /* gap: 24px; */
+
+    align-items: center;
+
 }
 
 /* El tercer input (Correo) saltará a la siguiente fila y ocupará el ancho de los dos de arriba */
 .Contenedor_inputs > div:nth-child(3) {
     grid-column: 1 / 3; 
     width: 100%; /* Se estira para cubrir el ancho de los dos de arriba */
+}
+
+.contenedor_acciones_pedido {
+    display: flex;
+    flex-direction: row; /* Los pone uno al lado del otro */
+    justify-content: flex-end; /* Los empuja a la derecha */
+    align-items: center;
+    
+    gap: 15px; /* <--- Este es el espacio que buscabas entre los botones */
+    
+    width: 800px; 
+    margin: 20px auto; /* Centra el bloque y le da aire arriba/abajo */
+}
+
+.contenedor_acciones_pedido {
+    display: flex;
+    flex-direction: row; /* Los pone uno al lado del otro */
+    justify-content: flex-end; /* Los empuja a la derecha */
+    align-items: center;
+    
+    gap: 15px; /* <--- Este es el espacio que buscabas entre los botones */
+    
+    width: 800px; 
+    margin: 20px auto; /* Centra el bloque y le da aire arriba/abajo */
+}
+
+.input_header {
+    display: flex;
+    align-items: center; 
+    gap: 8px;
+    margin-bottom: 5px;
+    
+    /* SOLUCIÓN: Altura fija para que el input no se mueva */
+    height: 24px; 
+    /* Alinea el contenido a la base para que el texto no flote si no hay icono */
+    align-items: flex-end; 
+}
+
+.input_icon {
+    display: flex;
+    align-items: center;
+    /* Asegura que el icono no añada padding extra */
+    line-height: 1; 
+}
+
+.input_label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    text-transform: uppercase;
+    /* Ajusta un pelo el margen inferior si el texto se ve muy pegado al input */
+    margin-bottom: 2px; 
+}
+
+.Contenedor_inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px; 
+    row-gap: 24px; 
+    
+    /* Cambia esto a start */
+    align-items: start; 
 }

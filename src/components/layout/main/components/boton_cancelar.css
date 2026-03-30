@@ -1,0 +1,18 @@
+.btn_cancelar {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px; /* Redondeado como pediste */
+    padding: 8px 20px;
+    height: 38px;
+    min-width: 100px;
+    color: #4b5563;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn_cancelar:hover {
+    background-color: #f9fafb;
+    border-color: #9ca3af;
+}
